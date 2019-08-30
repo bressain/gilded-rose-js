@@ -117,4 +117,31 @@ describe('GildedRose', () => {
       assert.strictEqual(subject.items[0].quality, 0)
     })
   })
+
+  describe('Conjured items', () => {
+    beforeEach(() => {
+      subject.items.push(new Item('Conjured Mana Cake', 3, 6))
+    })
+
+    it('decreases in quality twice as fast as normal items', () => {
+      subject.updateQuality()
+
+      assert.strictEqual(subject.items[0].sellIn, 2)
+      assert.strictEqual(subject.items[0].quality, 4)
+    })
+    it('quality does not go past zero', () => {
+      range(4).forEach(() => subject.updateQuality())
+
+      assert.strictEqual(subject.items[0].sellIn, -1)
+      assert.strictEqual(subject.items[0].quality, 0)
+    })
+    it('decreases in quality even faster when expired', () => {
+      subject = new GildedRose()
+      subject.items.push(new Item('Conjured Mana Cake', 3, 12))
+
+      range(4).forEach(() => subject.updateQuality())
+
+      assert.strictEqual(subject.items[0].quality, 2)
+    })
+  })
 })
