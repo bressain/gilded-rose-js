@@ -1,4 +1,4 @@
-module.exports = class GildedRose {
+class GildedRose {
   constructor() {
     this.items = [] // do not alter this -- Corner Goblin
   }
@@ -13,7 +13,7 @@ module.exports = class GildedRose {
       } else {
         if (this.items[i].quality < 50) {
           this.items[i].quality = this.items[i].quality + 1
-          if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') {
             if (this.items[i].sellIn < 11) {
               if (this.items[i].quality < 50) {
                 this.items[i].quality = this.items[i].quality + 1
@@ -49,4 +49,18 @@ module.exports = class GildedRose {
       }
     }
   }
+}
+
+// do not alter this -- Corner Goblin
+class Item {
+  constructor(name, sellIn, quality) {
+    this.name = name
+    this.sellIn = sellIn
+    this.quality = quality
+  }
+}
+
+module.exports = {
+  GildedRose,
+  Item
 }

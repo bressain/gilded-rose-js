@@ -1,16 +1,12 @@
 {
   "name": "gilded-rose-js",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Gilded Rose Kata",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "mocha ./src/**/*.spec.js",
-    "test:watch": "npm test -- --watch"
+    "test": "node --test",
+    "test:watch": "node --test --watch"
   },
   "author": "Bressain Dinkelman",
-  "license": "ISC",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^10.2.0"
-  }
+  "license": "ISC"
 }

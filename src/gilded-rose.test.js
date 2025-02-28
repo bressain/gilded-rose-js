@@ -1,14 +1,15 @@
-const expect = require('chai').expect
+const { describe, it, beforeEach } = require('node:test')
+const assert = require('node:assert')
 
-const GildedRose = require('../gilded-rose')
+const { GildedRose } = require('./gilded-rose')
 
 describe('examples to delete', () => {
   it('should be able to pass', () => {
-    expect(true).to.be.true
+    assert.strictEqual(true, true)
   })
 
   it('should be able to fail', () => {
-    expect(true).to.be.false
+    assert.strictEqual(true, false)
   })
 })
 
